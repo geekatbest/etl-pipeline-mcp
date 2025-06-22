@@ -8,25 +8,33 @@ CSV_PATH = 'D:/ml_projects/quantifai-assignment/v2_dynamic_pipeline/datasets/ord
 
 app = Flask(__name__)
 
+from logger_config import setup_logger
+logger = setup_logger("API")
+
 @app.route('/new_order', methods=['POST'])
 def new_order():
     new_order = request.get_json()
+    logger.info(f"Received new order: {new_order}")
 
-    # ✅ Append safely to CSV
     try:
         append_order_to_csv(CSV_PATH, new_order)
+        logger.info("Order appended to CSV")
     except Exception as e:
+        logger.exception("Failed to append to CSV")
         return jsonify({'status': 'CSV append failed', 'error': str(e)}), 500
 
-    # 🔁 Trigger pipeline with debounce
     if should_trigger():
         try:
             run_pipeline()
+            logger.info("Pipeline triggered by API")
             return jsonify({'status': 'Pipeline triggered'}), 200
         except Exception as e:
+            logger.exception("Pipeline execution failed")
             return jsonify({'status': 'Pipeline error', 'error': str(e)}), 500
     else:
-        return jsonify({'status': 'Debounced – Try again later'}), 429
+        logger.warning("Debounced too many triggers")
+        return jsonify({'status': 'Debounced Try again later'}), 429
+
 
 if __name__ == '__main__':
     app.run(debug=True)
