@@ -1,0 +1,51 @@
+CREATE TABLE "customers" (
+"cust_id" TEXT,
+  "full_name" TEXT,
+  "address" TEXT,
+  "city" TEXT,
+  "state" TEXT,
+  "zip_code" REAL,
+  "postal_code" TEXT,
+  "status" TEXT,
+  "total_orders" INTEGER,
+  "total_spent" REAL,
+  "loyalty_points" INTEGER,
+  "preferred_payment" TEXT,
+  "age" REAL,
+  "birth_date" TIMESTAMP,
+  "gender" TEXT,
+  "segment" TEXT
+);
+CREATE TABLE "orders" (
+"order_id" TEXT,
+  "cust_id" TEXT,
+  "product_id" TEXT,
+  "order_datetime" TIMESTAMP,
+  "payment_method" TEXT,
+  "shipping_address" TEXT,
+  "shipping_cost" REAL,
+  "tax" REAL,
+  "discount" REAL,
+  "order_total" REAL
+);
+CREATE TABLE "products" (
+"product_id" TEXT,
+  "item_id" INTEGER,
+  "product_name" TEXT,
+  "description" TEXT,
+  "category" TEXT,
+  "brand" TEXT,
+  "price" REAL,
+  "cost" REAL,
+  "weight" REAL,
+  "color" TEXT,
+  "size" TEXT,
+  "stock_quantity" INTEGER,
+  "stock_level" INTEGER,
+  "reorder_level" INTEGER,
+  "supplier_id" TEXT,
+  "created_date" TIMESTAMP,
+  "last_updated" TIMESTAMP,
+  "is_active" INTEGER,
+  "rating" REAL
+);
