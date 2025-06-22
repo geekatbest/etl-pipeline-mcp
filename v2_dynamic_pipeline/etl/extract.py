@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-DATA_DIR = "./datasets"
+DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "datasets")
 
 def load_orders(path: str) -> pd.DataFrame:
     df = pd.read_csv(path)

@@ -2,9 +2,9 @@
 from flask import Flask, request, jsonify
 from debounce import should_trigger
 from utils import append_order_to_csv
-from etl.pipeline import run_pipeline  # Your existing orchestrator
+from etl.pipeline import run_pipeline  
 
-CSV_PATH = 'data/orders_unstructured_data.csv'
+CSV_PATH = 'D:/ml_projects/quantifai-assignment/v2_dynamic_pipeline/datasets/orders_unstructured_data.csv'
 
 app = Flask(__name__)
 
