@@ -1,3 +1,6 @@
+# Just a test to check if the data is loaded correctly into the SQLite database
+# and to verify the SQL queries work as expected.
+
 import sqlite3
 import pandas as pd
 
@@ -7,7 +10,7 @@ cursor.execute("SELECT * FROM orders LIMIT 5;")
 print(cursor.fetchall())
 conn.close()
 
-
+# -- example queries --
 # SELECT full_name, total_spent FROM customers ORDER BY total_spent DESC LIMIT 5;
 # SELECT * FROM orders LIMIT 5
 # SELECT order_id, cust_id FROM orders WHERE order_datetime IS NULL;
