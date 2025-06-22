@@ -1,12 +1,12 @@
 import sqlite3
 import pandas as pd
 
-conn = sqlite3.connect("ecommerce.db")
-conn.execute("PRAGMA foreign_keys = ON")
-df = pd.read_sql_query("PRAGMA foreign_key_list(products);", conn)
-print(df)
-
+conn = sqlite3.connect("v1_ecommerce.db")
+cursor = conn.cursor()
+cursor.execute("SELECT * FROM orders LIMIT 5;")
+print(cursor.fetchall())
 conn.close()
+
 
 # SELECT full_name, total_spent FROM customers ORDER BY total_spent DESC LIMIT 5;
 # SELECT * FROM orders LIMIT 5
