@@ -1,14 +1,14 @@
 # app.py
 from flask import Flask, request, jsonify
-from debounce import should_trigger
-from utils import append_order_to_csv
+from utils.debounce import should_trigger
+from utils.utils import append_order_to_csv
 from etl.pipeline import run_pipeline  
 
 CSV_PATH = 'D:/ml_projects/quantifai-assignment/v2_dynamic_pipeline/datasets/orders_unstructured_data.csv'
 
 app = Flask(__name__)
 
-from logger_config import setup_logger
+from utils.logger_config import setup_logger
 logger = setup_logger("API")
 
 @app.route('/new_order', methods=['POST'])

@@ -60,7 +60,7 @@ class SQLiteMCPClient:
             history.append([user_input, error_msg])
             return "", history
 
-# Instantiate the SQLite client
+# Instantiation
 sqlite_client = SQLiteMCPClient(db_path="D:/ml_projects/quantifai-assignment/v2_ecommerce.db")
 
 # Sample SQLite queries

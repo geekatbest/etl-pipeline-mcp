@@ -4,7 +4,7 @@ from .extract import extract_all
 from .transform import clean_orders, clean_customers, clean_products
 from .load import load_to_db, export_schema
 
-from logger_config import setup_logger
+from utils.logger_config import setup_logger
 logger = setup_logger("ETL")
 
 def run_pipeline():
