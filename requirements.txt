@@ -1,0 +1,8 @@
+gradio
+langchain
+langgraph
+langchain-groq
+langchain_mcp_adapters
+python-dotenv
+groq
+uvicorn
