@@ -1,8 +1,0 @@
-[2025-06-23 06:15:01] [INFO] API: Received new order: {'order_id': 'ORD_00078', 'ord_id': 2, 'customer_id': 110, 'cust_id': 'CUST_0110', 'order_date': '2023-10-10', 'order_datetime': '2023-10-10T05:00:00.000Z', 'product_id': 'PROD_007', 'item_id': 1, 'quantity': 3, 'qty': 3, 'unit_price': 120.0, 'price': 360.0, 'total_amount': 390.0, 'order_total': 390.0, 'shipping_cost': 15.0, 'tax': 15.0, 'discount': 0, 'status': 'placed', 'order_status': 'PROCESSING', 'payment_method': 'card', 'shipping_address': '505 Elm St', 'notes': 'Urgent', 'tracking_number': 'TRK888123'}
-[2025-06-23 06:15:01] [INFO] API: Order appended to CSV
-[2025-06-23 06:15:01] [INFO] ETL: Data extraction complete
-[2025-06-23 06:15:01] [INFO] ETL: Data transformed
-[2025-06-23 06:15:01] [INFO] ETL: Data loaded into DB
-[2025-06-23 06:15:01] [INFO] ETL: Schema exported successfully
-[2025-06-23 06:15:01] [INFO] ETL: ETL pipeline finished
-[2025-06-23 06:15:01] [INFO] API: Pipeline triggered by API

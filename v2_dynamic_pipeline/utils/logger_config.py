@@ -1,6 +1,6 @@
 import logging
 
-def setup_logger(name: str, log_file: str = "log.txt") -> logging.Logger:
+def setup_logger(name: str, log_file: str = "v2_log.txt") -> logging.Logger:
     logger = logging.getLogger(name)
     logger.setLevel(logging.INFO)
 
