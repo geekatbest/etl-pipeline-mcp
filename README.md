@@ -12,25 +12,26 @@ This repository contains an end-to-end data engineering solution built as part o
 
 ## 📂 Project Structure
 
-quantifai-assignment/
-├── ai_reconciliation_bonus/ # Bonus AI reconciliation logic
-│ ├── corrected_mapping.py
-│ ├── gemini_mapper.py
-│ ├── fuzzy_mapping.py
-│ └── ...
-├── v1_static_pipeline/ # Static ETL pipeline using local data
-│ ├── app.py # Streamlit dashboard
-│ ├── etl/ # Extract-Transform-Load modules
-│ ├── datasets/
-│ └── v1_ecommerce.db
-├── v2_dynamic_pipeline/ # Dynamic pipeline triggered by API
-│ ├── app.py # Gradio interface
-│ ├── etl/
-│ ├── db-chat-llm/
-│ └── v2_ecommerce.db
-├── data_discovery_analysis.ipynb # Exploratory data analysis
-├── requirements.txt
-└── README.md
+quantifai-assignment/  
+├── ai_reconciliation_bonus/         # Bonus AI reconciliation logic  
+│   ├── corrected_mapping.py  
+│   ├── gemini_mapper.py  
+│   ├── fuzzy_mapping.py  
+│   └── ...  
+├── v1_static_pipeline/              # Static ETL pipeline using local data  
+│   ├── app.py                       # Streamlit dashboard  
+│   ├── etl/                         # Extract-Transform-Load modules  
+│   ├── datasets/  
+│   └── v1_ecommerce.db  
+├── v2_dynamic_pipeline/             # Dynamic pipeline triggered by API  
+│   ├── app.py                       # Gradio interface  
+│   ├── etl/  
+│   ├── db-chat-llm/  
+│   └── v2_ecommerce.db  
+├── data_discovery_analysis.ipynb    # Exploratory data analysis  
+├── requirements.txt  
+└── README.md  
+
 
 
 ---
