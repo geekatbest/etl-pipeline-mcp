@@ -6,7 +6,7 @@ st.set_page_config(page_title="E-Commerce Analytics Dashboard", layout="wide")
 st.title("🧮 E-Commerce Analytics Dashboard")
 
 st.sidebar.header("Settings")
-db_path = st.sidebar.text_input("SQLite DB Path", value="D:/ml_projects/quantifai-assignment/v1_ecommerce.db")
+db_path = st.sidebar.text_input("SQLite DB Path", value="v1_ecommerce.db")
 
 if "theme" not in st.session_state:
     st.session_state.theme = "light"
@@ -29,13 +29,12 @@ except Exception as e:
     st.error(f"Failed to load database: {e}")
     st.stop()
 
-# Convert order_datetime to proper datetime format
+
 orders['order_datetime'] = pd.to_datetime(orders['order_datetime'], errors='coerce')
 
 tabs = st.tabs(["Overview", "Orders Analytics", "Customer Insights", "Product Performance", "Data Quality"])
 
 
-# 1. Overview Tab
 with tabs[0]:
     st.subheader("📊 Business Overview")
     total_revenue = orders["order_total"].sum()
@@ -62,8 +61,6 @@ with tabs[0]:
     st.bar_chart(data=method_counts.set_index('method'))
 
 
-
-# 2. Orders Analytics
 with tabs[1]:
     st.subheader("🧾 Orders Analytics")
         # --- Filters ---
@@ -78,7 +75,7 @@ with tabs[1]:
         default=orders['payment_method'].dropna().unique()
     )
 
-    # Filtered DataFrame
+
     filtered_orders = orders.copy()
     filtered_orders = filtered_orders[
         (filtered_orders['order_datetime'].dt.date >= date_range[0]) &
@@ -86,7 +83,7 @@ with tabs[1]:
         (filtered_orders['payment_method'].isin(selected_methods))
     ]
 
-    # --- Orders by Month ---
+
     st.markdown("### 📅 Orders by Month")
     with st.spinner("Loading monthly order trends..."):
         orders_by_month = (
@@ -100,7 +97,6 @@ with tabs[1]:
         st.caption("Shows how many orders were placed each month.")
 
 
-    # --- Shipping Cost vs Revenue ---
     st.markdown("### 🚚 Shipping Cost vs Revenue Over Time")
     with st.spinner("Generating shipping vs revenue chart..."):
         ship_rev = (
@@ -114,7 +110,7 @@ with tabs[1]:
         st.caption("Compares daily shipping costs against total revenue.")
 
 
-# 3. Customer Insights
+
 with tabs[2]:
     st.subheader("🧑‍💼 Customer Insights")
 
@@ -129,7 +125,7 @@ with tabs[2]:
     st.metric("Repeat Customers", repeat_customers)
     st.metric("One-time Customers", one_time_customers)
 
-    # --- Segment Distribution ---
+
     st.markdown("### 🧩 Segment Distribution")
     seg_counts = customers["segment"].value_counts(dropna=False).reset_index()
     seg_counts.columns = ["segment", "count"]
@@ -138,7 +134,7 @@ with tabs[2]:
     else:
         st.info("No segment data available.")
 
-    # --- Top Customers by Spend ---
+
     st.markdown("### 💰 Top Customers by Spend")
     customer_orders['order_total'] = pd.to_numeric(customer_orders['order_total'], errors='coerce')
     top_spenders = (
@@ -153,7 +149,7 @@ with tabs[2]:
     else:
         st.info("No spend data available.")
 
-    # --- Customer Table ---
+
     st.markdown("### 📋 All Customers")
     st.dataframe(
         customers[["cust_id", "full_name", "segment", "total_orders", "total_spent", "preferred_payment"]]
@@ -162,17 +158,17 @@ with tabs[2]:
     )
 
 
-# 4. Product Performance
+
 with tabs[3]:
     st.subheader("📦 Product Performance")
 
-    # --- KPIs ---
+
     total_products = products.shape[0]
     active_products = products[products["is_active"].astype(str).str.lower() == "true"].shape[0]
     st.metric("Total Products", total_products)
     st.metric("Active Products", active_products)
 
-    # --- Top Selling Products ---
+
     st.markdown("### 🛒 Top Selling Products")
     top_products = (
         orders.groupby("product_id")
@@ -187,7 +183,7 @@ with tabs[3]:
     else:
         st.info("No product sales data available.")
 
-    # --- Low Stock Products ---
+
     st.markdown("### 📉 Low Stock Products")
     low_stock = products[products["stock_quantity"] <= products["reorder_level"]]
     low_stock_sorted = low_stock.sort_values("stock_quantity").head(10)
