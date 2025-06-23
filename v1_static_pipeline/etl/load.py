@@ -89,7 +89,7 @@ def load_to_db(orders_df, customers_df, products_df, db_name=DB_NAME):
     print("🔒 Connection closed")
 
 # create schema as schema.sql file locally
-def export_schema(db_path="v1_ecommerce.db", output_file="v1_static_pipeline/v1_schema.sql"):
+def export_schema(db_path="v1_ecommerce.db", output_file="v1_schema.sql"):
     with sqlite3.connect(db_path) as conn:
         with open(output_file, "w", encoding="utf-8") as f:
             for line in conn.iterdump():

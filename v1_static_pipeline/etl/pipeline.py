@@ -17,6 +17,7 @@ products_clean = clean_products(products_raw)
 print("✅ Orders Cleaned:")
 display(orders_clean.head())
 display(orders_clean.info())
+orders_clean.to_csv("orders_clean.csv", index=False)
 
 print("\n✅ Customers Cleaned:")
 display(customers_clean.head())
