@@ -1,4 +1,4 @@
-# 🛍️ E-Commerce ETL Pipelines + AI Reconciliation
+# 🛍️ E-Commerce ETL Pipelines (Static vs Dynamic)
 
 ## 🧠 Project Overview
 
