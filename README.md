@@ -1,8 +1,8 @@
-# 🛍️ Quantifai Assignment: E-Commerce ETL Pipelines + AI Reconciliation
+# 🛍️ E-Commerce ETL Pipelines + AI Reconciliation
 
 ## 🧠 Project Overview
 
-This repository contains an end-to-end data engineering solution built as part of a Quantifai assignment. It covers:
+This repository contains an end-to-end data engineering solution. It covers:
 
 - V1: A static ETL pipeline loading data from local e-commerce CSV and JSON files into SQLite, with a Streamlit dashboard.
 - V2: A dynamic ETL pipeline triggered by simulated external API (via Postman) and real-time transformation and loading, with interactive querying via Gradio chat and SQLite MCP server.
@@ -12,12 +12,6 @@ This repository contains an end-to-end data engineering solution built as part o
 
 ## 📂 Project Structure
 
-quantifai-assignment/  
-├── ai_reconciliation_bonus/         # Bonus AI reconciliation logic  
-│   ├── corrected_mapping.py  
-│   ├── gemini_mapper.py  
-│   ├── fuzzy_mapping.py  
-│   └── ...  
 ├── v1_static_pipeline/              # Static ETL pipeline using local data  
 │   ├── app.py                       # Streamlit dashboard  
 │   ├── etl/                         # Extract-Transform-Load modules  
@@ -54,17 +48,6 @@ quantifai-assignment/
 
 ---
 
-## 🤖 AI Reconciliation Task
-
-- 📥 Input: New customer dataset
-- 🔍 Step 1: Fuzzy match columns with orders_cleaned
-- 🤖 Step 2: Use Gemini AI to suggest column mappings
-- 🧩 Step 3: Final rule-based reconciliation logic
-- 🧾 Output: reconciled_joined.csv
-
-📍 Details in: ai_reconciliation_bonus/bonus-task-description.ipynb
-
----
 
 ## 🖼️ Visuals
 
@@ -87,14 +70,14 @@ quantifai-assignment/
 1. 🧬 Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/quantifai-assignment.git
-cd quantifai-assignment
+git clone https://github.com/geekatbest/etl-pipeline-mcp.git
+cd etl-pipeline-mcp
 ```
 
 2. 📦 Create Python Environment
 ```bash
-conda create -n quantifai-etl python=3.11
-conda activate quantifai-etl
+conda create -n etl python=3.11
+conda activate etl
 pip install -r requirements.txt
 ```
 
@@ -126,8 +109,6 @@ Attach your simulated files in the body.
 | 📈 Streamlit  | Dashboard (V1 UI)            |
 | 💬 Gradio     | Chat interface (V2)          |
 | 💾 SQLite     | Lightweight DB               |
-| 🔍 FuzzyWuzzy | String matching logic        |
-| 🤖 Gemini AI  | Schema & name matching       |
 | 📬 Postman    | API testing                  |
 
 ---
@@ -138,7 +119,6 @@ Attach your simulated files in the body.
 |--------------------------------|-----------------------------------------|
 | Schema mismatches in raw data  | Custom coercion + schema normalization  |
 | Realtime ETL on POST trigger   | FastAPI + internal orchestration        |
-| Fuzzy matching accuracy        | Weighted similarity + Gemini fallback   |
 | Insight querying from DB       | sqlite-chat + Gradio chat wrapper       |
 
 ---
